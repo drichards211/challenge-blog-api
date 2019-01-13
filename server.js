@@ -94,9 +94,33 @@ function closeServer() {
   })
 }
 
-if (require.main === module) {
-  runServer().catch(err => console.error(err))
-}
+
+// if (require.main === module) {
+//   runServer().catch(err => console.error(err))
+// */
+// CAUSES NODEMON TO CRASH:
+/* 
+events.js:167
+      throw er; // Unhandled 'error' event
+      ^
+Error: listen EADDRINUSE: address already in use :::8080
+    at Server.setupListenHandle [as _listen2] (net.js:1290:14)
+    at listenInCluster (net.js:1338:12)
+    at Server.listen (net.js:1425:7)
+    at Function.listen (C:\Dan\Business\Coding\Thinkful\server-side-js\challenge-blog-api\node_modules\express\lib\application.js:618:24)
+    at Object.<anonymous> (C:\Dan\Business\Coding\Thinkful\server-side-js\challenge-blog-api\server.js:103:5)
+    at Module._compile (internal/modules/cjs/loader.js:689:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+    at Module.load (internal/modules/cjs/loader.js:599:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:538:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:530:3)
+Emitted 'error' event at:
+    at emitErrorNT (net.js:1317:8)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:745:11)
+    at startup (internal/bootstrap/node.js:283:19)
+    at bootstrapNodeJSCore (internal/bootstrap/node.js:743:3)
+*/
 
 module.exports = { app, runServer, closeServer }
 
