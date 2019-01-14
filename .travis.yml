@@ -1,2 +1,10 @@
 language: node_js
 node_js: node
+deploy:
+  provider: heroku
+  api_key:
+    secure: C0/37KfqbDxQ0j2gGjZYrLgjF/Z6kb67alcHZeh1DnvlgHhYH5w0nrtc8WsdL48NsaVjXQyaxSqWiK61bp9fLLzJ18ffKhOeCezoLnsdafPSzO9Jml7qY3zGB9z0I0URunx1xIYklgE1Rn8y8XOJBdZFoSBYJumiwkbVFuNrjA8gtlmupgM4Ls78gsVMhLumkMM7drOo8PNnEzDjUprlnOH5WNgB/vwTRIhg4p6+gQUzcf5MiibT7E/gxIs4+B6NojBFVJyrGqqZzD5dl19sVD5Q6T4L0YOllmaKvmmka/mXyD9Gzqq8a7rwYX0AAySG9m0qKlv6EIIkhymNAKk98MuAS2djBfBmcmDXJdQYro7xnBE9Qvr6aycuGw7WMAoKtvKCpi7YZ/T71wg8F8HJfXxFoBSaa6KW5dziMmLaMZz76SZNI0NdeaBpFgNGku5N4/6coEFhKVSdX6xUwdceLtK8RDgdJKSzWh6rhizjWCCp3g9hASUWX/vu5NHnFdM4/olwZhvS/e233M1a7TbrQ41VCX/fjm8AFVWNSmQaXS6xQcmaxeXl2GqY72yhZPrZR04sdPtJBk6NCDsgSOlzgFiJX2ctWVZ9B8RAsu/KpqkllkBlGdnt4q5XHQwFFsc4xugo1toBK4zQovVnoqoC7rRIWhU35vLkB3cDH3TyiQU=
+  app: whispering-lake-86922
+  on:
+    repo: drichards211/challenge-blog-api
+    branch: test-api-endpoints
