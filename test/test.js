@@ -49,4 +49,30 @@ describe("Blog Posts", function() {
         )
       })
   })
+  it("should update items on PUT", function() {
+    const updateData = {
+      title: "The World's Ancient Wonders",
+      content: "There are seven of them.",
+      author: "D.R.",
+      publishDate: "01-13-19"
+    }
+    return (
+      chai
+        .request(app)
+        .get("/blog-posts")
+        .then(function(res) {
+          updateData.id = res.body[0].id
+          return chai
+            .request(app)
+            .put(`/blog-posts/${updateData.id}`)
+            .send(updateData)
+        })
+        .then(function(res) {
+          expect(res).to.have.status(204)
+          //expect(res).to.be.json
+          expect(res.body).to.be.a("object")
+          //expect(res.body).to.deep.equal(updateData)
+        })
+    )
+  })
 })
