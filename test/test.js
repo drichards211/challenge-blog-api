@@ -49,7 +49,7 @@ describe("Blog Posts", function() {
         )
       })
   })
-  it("should update items on PUT", function() {
+  it("should update blog post on PUT", function() {
     const updateData = {
       title: "The World's Ancient Wonders",
       content: "There are seven of them.",
@@ -72,6 +72,19 @@ describe("Blog Posts", function() {
           //expect(res).to.be.json
           expect(res.body).to.be.a("object")
           //expect(res.body).to.deep.equal(updateData)
+        })
+    )
+  })
+  it("should delete blog post on DELETE", function() {
+    return (
+      chai
+        .request(app)
+        .get("/blog-posts")
+        .then(function(res) {
+          return chai.request(app).delete(`/blog-posts/${res.body[0].id}`)
+        })
+        .then(function(res) {
+          expect(res).to.have.status(204)
         })
     )
   })
