@@ -32,4 +32,21 @@ describe("Blog Posts", function() {
         })
       })
   })
+  it("should add a blog post on POST", function() {
+    const newBlogPost = { title: "The World's Deserts", content: "There are many of them", author: "D.R.", publishDate: "01-13-2019" }
+    return chai
+      .request(app)
+      .post("/blog-posts")
+      .send(newBlogPost)
+      .then(function(res) {
+        expect(res).to.have.status(201)
+        expect(res).to.be.json
+        expect(res.body).to.be.a("object")
+        expect(res.body).to.include.keys("id", "title", "content", "author", "publishDate")
+        expect(res.body.id).to.not.equal(null)
+        expect(res.body).to.deep.equal(
+          Object.assign(newBlogPost, { id: res.body.id })
+        )
+      })
+  })
 })
