@@ -95,9 +95,10 @@ function closeServer() {
 }
 
 
-// if (require.main === module) {
-//   runServer().catch(err => console.error(err))
-// */
+if (require.main === module) {
+  runServer().catch(err => console.error(err))
+}
+
 // CAUSES NODEMON TO CRASH:
 /* 
 events.js:167
@@ -124,6 +125,7 @@ Emitted 'error' event at:
 
 module.exports = { app, runServer, closeServer }
 
-app.listen(process.env.PORT || 8080, () => {
+// THIS LINE NO LONGER NEEDED
+/* app.listen(process.env.PORT || 8080, () => {
   console.log(`Your app is listening on port ${process.env.PORT || 8080}`)
-})
+}) */
